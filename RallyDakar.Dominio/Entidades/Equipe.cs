@@ -6,7 +6,6 @@ namespace RallyDakar.Dominio.Entidades
 {
     public class Equipe
     {
-
         public int Id { get; set; }
 
         public string CodigoIdentificador { get; set; }
@@ -18,5 +17,15 @@ namespace RallyDakar.Dominio.Entidades
         public virtual Temporada Temporada { get; set; }
 
         public ICollection<Piloto> Pilotos { get; set; }
+
+        public bool Validado()
+        {
+            if (string.IsNullOrEmpty(Nome))
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
 }
